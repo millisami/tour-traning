@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @destination.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @destination.description %>
+</p>
+
+<h3>Reviews</h3>
+
+
+<div id="review_form">
+
+  <%= form_for([@destination, Review.new]) do |f| %>
+    <%= f.label "Write your review:"%>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+  <% end %>
+
+</div>
+
+<% @reviews.each do |review| %>
+
+  <p><%= review.content %></p>
+
+<% end %>
+
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>
