@@ -1,13 +1,10 @@
 class DestinationsController < ApplicationController
-  # GET /destinations
-  # GET /destinations.json
+
+  respond_to :html, :json
+
   def index
     @destinations = Destination.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @destinations }
-    end
+    respond_with @destinations
   end
 
   # GET /destinations/1
@@ -18,7 +15,7 @@ class DestinationsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @destination }
+      format.json
     end
   end
 
