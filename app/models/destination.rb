@@ -3,6 +3,6 @@ class Destination < ActiveRecord::Base
 
 
   validates :description, :presence => true
-  validates :title, :presence => true
+  validates :title, :presence => true, :uniqueness => true
 
 end
