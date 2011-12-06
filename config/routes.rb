@@ -1,5 +1,7 @@
 Tour::Application.routes.draw do
 
+  devise_for :users
+
   resources :destinations do
     resources :reviews, :except => [:show, :index]
   end
