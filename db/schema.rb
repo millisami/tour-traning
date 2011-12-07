@@ -11,14 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206091302) do
+ActiveRecord::Schema.define(:version => 20111207091614) do
 
   create_table "destinations", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "destinations", ["user_id"], :name => "index_destinations_on_user_id"
 
   create_table "reviews", :force => true do |t|
     t.text     "content"

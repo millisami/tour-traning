@@ -21,4 +21,24 @@ describe "Destination" do
     page.should have_content "js works"
   end
 
+
+  it "should allow logged in user to create", :focus do
+
+    user = Factory(:user, :email => "millisami@gmail.com")
+
+    login(user)
+
+    visit new_destination_path
+
+    fill_in "Title", :with => "Newtitle"
+    fill_in "Destination", :with => "Dddd"
+
+    click_button("Create Destination")
+
+    page.current_path.should eql(destinations_path)
+    page.should have_content("Newtitle")
+
+  end
+
+
 end

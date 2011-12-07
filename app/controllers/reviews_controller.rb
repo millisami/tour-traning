@@ -5,12 +5,12 @@ class ReviewsController < ApplicationController
 
   def create
 
-    @review = @destination.reviews.create(params[:review])
+      @review = @destination.reviews.create(params[:review])
+
+    @review = @destination.reviews.create({"content" => "sdfsdfsdfsdf"})
+
 
     redirect_to destination_path(@destination)
-
-    # render :text => "Param: #{params}"
-
   end
 
 
