@@ -22,7 +22,7 @@ describe "Destination" do
   end
 
 
-  it "should allow logged in user to create", :focus do
+  it "should allow logged in user to create" do
 
     user = Factory(:user, :email => "millisami@gmail.com")
 

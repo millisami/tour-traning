@@ -3,7 +3,10 @@ class Destination < ActiveRecord::Base
 
 
   validates :description, :presence => true
-  validates :title, :presence => true, :uniqueness => true
+
+  validates :title, :presence => true, :uniqueness => true,
+            :format => { :with => /\w|\s/i },
+            :length => { :minimum => 5 }
 
   attr_accessible :title, :description
 

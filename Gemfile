@@ -15,6 +15,9 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'pry'
+  gem 'pry-doc'
 end
 
 
@@ -23,4 +26,8 @@ group :test do
   gem 'launchy'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'valid_attribute'
+
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-rspec'
 end
