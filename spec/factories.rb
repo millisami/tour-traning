@@ -15,11 +15,13 @@ FactoryGirl.define do
   factory :destination do
     title 'The final destination X'
     description 'Lorem ipsum dolor sit amet'
+    user
   end
 
   factory :review do
     destination
     content 'The nice place/movie.'
+    user
   end
 end
 

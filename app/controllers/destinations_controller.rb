@@ -39,7 +39,7 @@ class DestinationsController < ApplicationController
   # POST /destinations.json
   def create
 
-    current_user.destinations.create(params[:destinations])
+    @destination = current_user.destinations.new(params[:destination])
 
     respond_to do |format|
       if @destination.save

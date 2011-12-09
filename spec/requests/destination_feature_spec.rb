@@ -15,6 +15,7 @@ describe "Destination" do
 
 
   it "Displaying a destination show page" do
+    pending "Later for Ajax session"
     destination = Factory(:destination, :title => "New destination")
     visit destination_path(destination.id)
     click_link("test js")
@@ -31,7 +32,7 @@ describe "Destination" do
     visit new_destination_path
 
     fill_in "Title", :with => "Newtitle"
-    fill_in "Destination", :with => "Dddd"
+    fill_in "Description", :with => "Dddd hello me"
 
     click_button("Create Destination")
 
