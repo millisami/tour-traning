@@ -6,6 +6,8 @@ class Notify < ActionMailer::Base
     @review = review
 
     attachments["rails.png"] = File.read("#{Rails.root}/app/assets/images/rails.png")
+
+
     mail from: review.user.email, to: review.destination.user.email, subject: "New review added"
   end
 

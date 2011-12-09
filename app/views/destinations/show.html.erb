@@ -10,26 +10,24 @@
   <%= @destination.description %>
 </p>
 
-<%= link_to_function "test js", '$(this).html("js works")' %>
+<%#= link_to_function "test js", '$(this).html("js works")' %>
 
 <h3>Reviews</h3>
 
-
 <div id="review_form">
 
-  <%= form_for([@destination, Review.new]) do |f| %>
+  <%= form_for([@destination, Review.new], remote: true) do |f| %>
     <%= f.label "Write your review:"%>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :rows => 5 %>
     <%= f.submit %>
   <% end %>
 
 </div>
 
-<% @reviews.each do |review| %>
+<div id="reviews">
+  <%= render @reviews %>
+</div>
 
-  <p><%= review.content %></p>
-
-<% end %>
 
 <%= link_to 'Edit', edit_destination_path(@destination) %> |
 <%= link_to 'Back', destinations_path %>

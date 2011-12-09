@@ -1,16 +1,17 @@
 class ReviewsController < ApplicationController
 
-
+  before_filter :authenticate_user!
   before_filter :find_destination
 
   def create
 
-      @review = @destination.reviews.create(params[:review])
 
-    @review = @destination.reviews.create({"content" => "sdfsdfsdfsdf"})
+    @review = @destination.reviews.create(params[:review].merge!({user_id: current_user.id}))
 
-
-    redirect_to destination_path(@destination)
+    respond_to do |format|
+      format.html {redirect_to destination_path(@destination)}
+      format.js
+    end
   end
 
 

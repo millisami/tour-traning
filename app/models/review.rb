@@ -3,7 +3,7 @@ class Review < ActiveRecord::Base
   belongs_to :user
 
 
-  after_save :notify_destination_owner
+  #after_save :notify_destination_owner
 
 
   private
