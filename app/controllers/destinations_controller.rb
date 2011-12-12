@@ -35,6 +35,7 @@ class DestinationsController < ApplicationController
     @destination = Destination.find(params[:id])
   end
 
+
   # POST /destinations
   # POST /destinations.json
   def create
@@ -43,8 +44,11 @@ class DestinationsController < ApplicationController
 
     respond_to do |format|
       if @destination.save
-        format.html { redirect_to destinations_path, notice: 'Destination was successfully created.' }
-        format.json { render json: @destination, status: :created, location: @destination }
+        if params[:destination][:photo].present?
+          render :template => "destinations/crop" and return
+        else
+          redirect_to destinations_path, notice: 'Destination was successfully created.'
+        end
       else
         format.html { render action: "new" }
         format.json { render json: @destination.errors, status: :unprocessable_entity }
@@ -59,8 +63,12 @@ class DestinationsController < ApplicationController
 
     respond_to do |format|
       if @destination.update_attributes(params[:destination])
-        format.html { redirect_to @destination, notice: 'Destination was successfully updated.' }
-        format.json { head :ok }
+
+        if params[:destination][:photo].present?
+          render :template => "destinations/crop" and return
+        else
+          redirect_to destinations_path, notice: 'Destination was successfully updated.'
+        end
       else
         format.html { render action: "edit" }
         format.json { render json: @destination.errors, status: :unprocessable_entity }

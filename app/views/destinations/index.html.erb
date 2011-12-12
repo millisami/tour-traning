@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th></th>
     <th>Title</th>
     <th>Description</th>
     <th></th>
@@ -11,6 +12,7 @@
 
 <% @destinations.each do |destination| %>
   <tr>
+    <td><%= image_tag destination.photo.thumb.url %></td>
     <td><%= destination.title %></td>
     <td><%= destination.description %></td>
     <td><%= link_to 'Show', destination %></td>

@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <b>Title:</b>
@@ -9,6 +8,8 @@
   <b>Description:</b>
   <%= @destination.description %>
 </p>
+
+<%= image_tag @destination.photo.large.url %>
 
 <%#= link_to_function "test js", '$(this).html("js works")' %>
 
