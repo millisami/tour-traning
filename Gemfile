@@ -13,6 +13,10 @@ end
 
 gem 'jquery-rails'
 
+group :development do
+  gem "nifty-generators"
+end
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'ruby-debug19', :require => 'ruby-debug'

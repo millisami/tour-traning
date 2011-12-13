@@ -1,5 +1,7 @@
 class DestinationsController < ApplicationController
 
+  layout "new_layout"
+
   respond_to :html, :json
 
   def index
@@ -14,8 +16,8 @@ class DestinationsController < ApplicationController
     @reviews = @destination.reviews
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json
+      format.html# show.html.erb
+      format.js { render :layout => false }
     end
   end
 

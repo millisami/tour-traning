@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>No Tour</title>
+  <%= stylesheet_link_tag    "new_layout" %>
+
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+  <%= render :partial => "shared/header" %>
+
+  <%= yield %>
+
+  <%= render :partial => "shared/footer" %>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<% content_for(:head) do %>
+
+  <style>
+    h1 { color: blue;}
+  </style>
+
+<% end %>
+
+<% content_for(:foot) do %>
+
+  <p><strong>Copyright &copy; 2011</strong><p>
+
+<% end %>
+
+
+
+<h1>This is the homepage</h1>
+
+<div id="destinations">
+
+  <ul>
+    <% @destinations.each do |dest| %>
+      <li><%= dest.title %></li>
+    <% end %>
+  </ul>
+
+</div>
